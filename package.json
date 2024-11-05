@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:luoxiangfan/nodemv.git"
+    "url": "git+git@github.com:luoxiangfan/node-mv.git"
   },
   "keywords": [
     "mv",
@@ -46,9 +46,9 @@
   "author": "lxf <infiniment@163.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luoxiangfan/nodemv/issues"
+    "url": "https://github.com/luoxiangfan/node-mv/issues"
   },
-  "homepage": "https://github.com/luoxiangfan/nodemv#readme",
+  "homepage": "https://github.com/luoxiangfan/node-mv#readme",
   "devDependencies": {
     "@types/node": "^22.8.7",
     "prettier": "^3.3.3",
