@@ -1,9 +1,11 @@
 {
-  "name": "nodemv",
+  "name": "@lxf2513/nodemv",
   "version": "1.0.0",
   "description": "The 'mv' command implementation for nodejs.It will create all the necessary directories and destination file which not exist.",
   "type": "module",
-  "bin": "./dist/bin.mjs",
+  "bin": {
+    "nodemv": "./dist/bin.mjs"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
