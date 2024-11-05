@@ -1,0 +1,61 @@
+{
+  "name": "nodemv",
+  "version": "1.0.0",
+  "description": "The 'mv' command implementation for nodejs.It will create all the necessary directories and destination file which not exist.",
+  "type": "module",
+  "bin": "./dist/bin.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "type-check": "tsc --strict --noEmit",
+    "format": "prettier --write src/",
+    "build": "unbuild",
+    "release": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:luoxiangfan/nodemv.git"
+  },
+  "keywords": [
+    "mv",
+    "move",
+    "node mv",
+    "rename",
+    "file",
+    "folder",
+    "recursive"
+  ],
+  "author": "lxf <infiniment@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luoxiangfan/nodemv/issues"
+  },
+  "homepage": "https://github.com/luoxiangfan/nodemv#readme",
+  "devDependencies": {
+    "@types/node": "^22.8.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "unbuild": "^2.0.0"
+  },
+  "dependencies": {
+    "makedirp": "^1.0.0",
+    "node-cpr": "^1.0.3",
+    "node-rmrf": "^1.0.3"
+  }
+}
