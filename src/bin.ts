@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { createInterface } from "readline";
 import { mv } from "./index.js";
-import { name, version } from "../package.json";
+import { version } from "../package.json";
 import type { MvOption } from "./type.js";
-import { errorLog } from "./util.js";
+import { errorLog, name } from "./util.js";
 
 const helpInfo = () => {
   errorLog(`Try '${name} --help' for more information.`);

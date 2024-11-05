@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { name } from "../package.json";
+
+export const name = 'nodemv';
 
 export const errorLog = (str: string) => {
   console.log("\x1b[31m%s\x1b[0m", str);
