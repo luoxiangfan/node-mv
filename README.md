@@ -4,17 +4,17 @@ The 'mv' command implementation for nodejs.It will create all the necessary dire
 ## Installation
 
 ```js
-npm install makedirp
+npm install @lxf2513/node-mv
 ```
 
 ## Usage
 
 ```js
-import { mv } from 'makedirp'
+import { mv } from '@lxf2513/node-mv'
 // or
 import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url)
-const { mv } = require('makedirp')
+const { mv } = require('@lxf2513/node-mv')
 
 mv(source, dest, options?)
 
