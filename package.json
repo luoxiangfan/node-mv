@@ -59,5 +59,8 @@
     "makedirp": "^1.0.0",
     "node-cpr": "^1.0.3",
     "node-rmrf": "^1.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
