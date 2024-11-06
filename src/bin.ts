@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { createInterface } from "readline";
-import { mv } from "./index.js";
-import { version } from "../package.json";
-import type { MvOption } from "./type.js";
-import { errorLog, name } from "./util.js";
+import { createInterface } from 'readline';
+import { mv } from './index.js';
+import { version } from '../package.json';
+import type { MvOption } from './type.js';
+import { errorLog, name } from './util.js';
 
 const helpInfo = () => {
   errorLog(`Try '${name} --help' for more information.`);
@@ -21,21 +21,21 @@ Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
 `;
 
 const validArgs = [
-  "--",
-  "-h",
-  "-v",
-  "-n",
-  "--help",
-  "--version",
-  "--no-clobber",
-  "--mkdirp",
+  '--',
+  '-h',
+  '-v',
+  '-n',
+  '--help',
+  '--version',
+  '--no-clobber',
+  '--mkdirp'
 ];
 
 const main = async (...args: string[]) => {
   const _args = args.filter((i) => i.trim());
   let paths: string[] = [];
   let options: string[] = [];
-  const splitChar = "--";
+  const splitChar = '--';
   const idx = _args.findIndex((arg) => arg === splitChar);
   if (!_args.length || (_args.length === 1 && idx > -1)) {
     errorLog(`${name}: missing file operand`);
@@ -52,23 +52,23 @@ const main = async (...args: string[]) => {
   }
   const mvOption: MvOption = {
     clobber: true,
-    mkdirp: false,
+    mkdirp: false
   };
   if (options.length) {
     const arg =
       options.length === 1
         ? options[0]
-        : options.filter((o) => o !== "-m" && o !== "--mode")[0];
+        : options.filter((o) => o !== '-m' && o !== '--mode')[0];
     if (validArgs.includes(arg)) {
-      if (arg === "-h" || arg === "--help") {
+      if (arg === '-h' || arg === '--help') {
         console.log(help);
         return 0;
-      } else if (arg === "-v" || arg === "--version") {
+      } else if (arg === '-v' || arg === '--version') {
         console.log(`${name} ${version}`);
         return 0;
-      } else if (arg === "-n" || arg === "--no-clobber") {
+      } else if (arg === '-n' || arg === '--no-clobber') {
         mvOption.clobber = false;
-      } else if (arg === "--mkdirp") {
+      } else if (arg === '--mkdirp') {
         mvOption.mkdirp = true;
       }
     } else {
@@ -80,7 +80,7 @@ const main = async (...args: string[]) => {
 
   const rl = createInterface({
     input: process.stdin,
-    output: process.stdout,
+    output: process.stdout
   });
 
   mv(paths.slice(0, -1), paths.slice(-1)[0], mvOption);
@@ -100,5 +100,5 @@ main(...args).then(
   (err) => {
     errorLog(err);
     process.exit(1);
-  },
+  }
 );
