@@ -56,9 +56,9 @@
     "unbuild": "^2.0.0"
   },
   "dependencies": {
-    "makedirp": "^1.0.0",
-    "node-cpr": "^1.0.3",
-    "node-rmrf": "^1.0.3"
+    "makedirp": "^1.1.0",
+    "node-cpr": "^1.1.0",
+    "node-rmrf": "^1.0.4"
   },
   "publishConfig": {
     "access": "public"
