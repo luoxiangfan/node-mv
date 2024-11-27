@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import { createInterface } from 'readline';
 import { mv } from './index.js';
-import { version } from '../package.json';
+import packageConfig from '../package.json' assert { type: 'json' };
 import type { MvOption } from './type.js';
 import { errorLog, name } from './util.js';
+
+const { version } = packageConfig;
 
 const helpInfo = () => {
   errorLog(`Try '${name} --help' for more information.`);
