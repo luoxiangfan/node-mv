@@ -1,6 +1,6 @@
 {
   "name": "@lxf2513/node-mv",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The 'mv' command implementation for nodejs.It will create all the necessary directories and destination file which not exist.",
   "type": "module",
   "bin": {
