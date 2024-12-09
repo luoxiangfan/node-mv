@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 import { createInterface } from 'readline';
 import { mv } from './index.js';
-import packageConfig from '../package.json' assert { type: 'json' };
+import { version } from '../package.json';
 import type { MvOption } from './type.js';
 import { errorLog, name } from './util.js';
-
-const { version } = packageConfig;
 
 const helpInfo = () => {
   errorLog(`Try '${name} --help' for more information.`);
 };
 
-export const help = `${name} ${version}
+const help = `${name} ${version}
 
 Usage: ${name} [OPTION]... SOURCE... DIRECTORY
 Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
@@ -91,10 +89,6 @@ const main = async (...args: string[]) => {
 
   return 0;
 };
-main.help = help;
-main.version = version;
-
-export default main;
 
 const args = process.argv.slice(2);
 main(...args).then(

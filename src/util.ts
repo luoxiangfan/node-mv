@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import { existsSync, statSync } from 'node:fs';
+import { resolve, sep } from 'node:path';
 
 export const name = 'nodemv';
 
@@ -7,36 +7,34 @@ export const errorLog = (str: string) => {
   console.log('\x1b[31m%s\x1b[0m', str);
 };
 
-export function isPathExist(filePath: string) {
+export function isPathExist(path: string) {
   try {
-    return fs.existsSync(filePath);
-  } catch (error) {
+    return existsSync(path);
+  } catch {
     return false;
   }
 }
 
-export function isFile(filePath: string) {
+export function isFile(path: string) {
   try {
-    const stat = fs.statSync(path.resolve(filePath));
+    const stat = statSync(resolve(path));
     return stat.isFile();
-  } catch (error) {
+  } catch {
     return false;
   }
 }
 
-export function isDirectory(filePath: string) {
+export function isDirectory(path: string) {
   try {
-    const stat = fs.statSync(path.resolve(filePath));
+    const stat = statSync(resolve(path));
     return stat.isDirectory();
-  } catch (error) {
+  } catch {
     return false;
   }
 }
-
-export const isArray = Array.isArray;
 
 export function isExistedInDest(source: string, dest: string) {
-  if (isDirectory(dest) && isPathExist(`${dest}/${source}`)) {
+  if (isDirectory(dest) && isPathExist(`${dest}${sep}${source}`)) {
     return true;
   }
   return false;
